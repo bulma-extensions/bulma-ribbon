@@ -1,6 +1,6 @@
 {
   "name": "bulma-ribbon",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Display a ribbon on bulma element",
   "main": "src/sass/index.scss",
   "style": "dist/css/bulma-ribbon.min.css",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Wikiki/bulma-ribbon.git"
+    "url": "git+https://github.com/ymkapuriya/bulma-ribbon.git"
   },
   "keywords": [
     "Bulma",
@@ -21,9 +21,9 @@
   "author": "Yogesh Kapuriya <ymkapuriya@hotmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Wikiki/bulma-ribbon/issues"
+    "url": "https://github.com/ymkapuriya/bulma-ribbon/issues"
   },
-  "homepage": "https://github.com/Wikiki/bulma-ribbon#readme",
+  "homepage": "https://github.com/ymkapuriya/bulma-ribbon#readme",
   "devDependencies": {
     "bulma": "^1.0.1",
     "sass": "^1.77.6"
