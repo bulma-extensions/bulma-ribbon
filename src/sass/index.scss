@@ -1,0 +1,102 @@
+@use "bulma/sass/utilities/initial-variables" as iv;
+@use "bulma/sass/utilities/derived-variables" as dv;
+@use "bulma/sass/utilities/functions.scss" as fn;
+
+// @use "../../node_modules/bulma/sass/utilities/initial-variables" as iv;
+// @use "../../node_modules/bulma/sass/utilities/derived-variables" as dv;
+// @use "../../node_modules/bulma/sass/utilities/functions.scss" as fn;
+
+$ribbon-color: iv.$grey-darker !default;
+$ribbon-background-color: iv.$white !default;
+$ribbon-border: .1rem solid iv.$grey-lighter !default;
+
+// The ribbon sizes use mixins so they can be used at different breakpoints
+@mixin ribbon-small {
+  font-size: dv.$size-small;
+}
+
+@mixin ribbon-medium {
+  font-size: dv.$size-medium;
+}
+
+@mixin ribbon-large {
+  font-size: dv.$size-large;
+}
+
+.has-ribbon {
+  position: relative;
+}
+
+.has-ribbon-left {
+  position: relative;
+
+  .ribbon {
+    right: auto;
+    left: 0;
+    border-left: none;
+    border-right: $ribbon-border;
+  }
+}
+
+.has-ribbon-bottom {
+  position: relative;
+
+  .ribbon {
+    top: auto;
+    bottom: .5em;
+  }
+}
+
+.ribbon {
+  background-color: $ribbon-background-color;
+  border: $ribbon-border;
+  border-right: none;
+  color: $ribbon-color;
+  font-size: dv.$size-normal;
+  justify-content: center;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  text-align: center;
+  white-space: nowrap;
+  position: absolute;
+  top: .5em;
+  right: 0;
+  font-weight: 400;
+  z-index: 2;
+
+  @each $name, $pair in dv.$colors {
+    $color: nth($pair, 1);
+    $color-invert: fn.bulmaFindColorInvert($color);
+
+    &.is-#{$name}:not(.is-outlined) {
+      background-color: $color;
+      border-color: transparent;
+      color: $color-invert !important;
+    }
+
+    &.is-#{$name} {
+      &.is-outlined {
+        background-color: transparent;
+        border-color: $color;
+      }
+
+      // Sizes
+    }
+  }
+
+  &.is-small {
+    @include ribbon-small;
+  }
+
+  &.is-medium {
+    @include ribbon-medium;
+  }
+
+  &.is-large {
+    @include ribbon-large;
+  }
+
+  &.is-outlined {
+    background-color: transparent;
+  }
+}
